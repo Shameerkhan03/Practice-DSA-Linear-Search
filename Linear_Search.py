@@ -24,14 +24,12 @@ tests.append(test)
 def search_card(cards, query) -> int:
     position: int = 0
 
-    while True:
+    while position<len(cards):
         if cards[position] == query:
             return position
         
         position += 1
 
-        if position == len(cards):
-            return -1
 
 
 result = (search_card(test["inputs"]["cards"], test["inputs"]["query"])) == test["output"]
@@ -43,7 +41,7 @@ print(result)
 tests.append(test)
 
 tests.append({
-    'input': {
+    'inputs': {
         'cards': [13, 11, 10, 7, 4, 3, 1, 0],
         'query': 1
     },
@@ -52,7 +50,7 @@ tests.append({
 
 # query is the first element
 tests.append({
-    'input': {
+    'inputs': {
         'cards': [4, 2, 1, -1],
         'query': 4
     },
@@ -61,7 +59,7 @@ tests.append({
 
 # query is the last element
 tests.append({
-    'input': {
+    'inputs': {
         'cards': [3, -1, -9, -127],
         'query': -127
     },
@@ -69,7 +67,7 @@ tests.append({
 })
 
 tests.append({
-    'input': {
+    'inputs': {
         'cards': [6],
         'query': 6
     },
@@ -78,7 +76,7 @@ tests.append({
 
 # cards does not contain query 
 tests.append({
-    'input': {
+    'inputs': {
         'cards': [9, 7, 5, 2, -9],
         'query': 4
     },
@@ -87,7 +85,7 @@ tests.append({
 
 # cards is empty
 tests.append({
-    'input': {
+    'inputs': {
         'cards': [],
         'query': 7
     },
@@ -95,7 +93,7 @@ tests.append({
 })
 
 tests.append({
-    'input': {
+    'inputs': {
         'cards': [8, 8, 6, 6, 6, 6, 6, 3, 2, 2, 2, 0, 0, 0],
         'query': 3
     },
@@ -104,9 +102,13 @@ tests.append({
 
 # query occurs multiple times
 tests.append({
-    'input': {
+    'inputs': {
         'cards': [8, 8, 6, 6, 6, 6, 6, 6, 3, 2, 2, 2, 0, 0, 0],
         'query': 6
     },
     'output': 2
 })
+
+for test in tests:
+    result = (search_card(test["inputs"]["cards"], test["inputs"]["query"])) == test["output"]
+    print(result)
