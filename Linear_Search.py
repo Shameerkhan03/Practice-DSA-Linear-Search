@@ -3,8 +3,7 @@
 # input key holds 2 more keys. 1- list of cards 2- the card we are searchng for
 # output key holds the position of the card we are searching
 
-test: dict
-{
+test: dict ={
     "inputs":
     {
         "cards":[2,4,3,5,6,0],
@@ -12,3 +11,9 @@ test: dict
     },
     "output":3
 }
+
+# before searching make a list which holds our dictionary
+# in future if we want to add more dictionaries we can append the list
+
+tests:list = []
+tests.append(test)
